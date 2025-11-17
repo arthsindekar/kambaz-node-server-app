@@ -43,6 +43,7 @@ export default function UserRoutes(app, db) {
   };
 
   const profile = (req, res) => {
+    console.log(req.session);
     const currentUser = req.session["currentUser"];
     if (!currentUser) {
       res.sendStatus(401);
