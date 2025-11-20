@@ -22,6 +22,7 @@ app.use(
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     origin: process.env.CLIENT_URL || "http://localhost:3000",
+
   })
 );
 const sessionOptions = {
@@ -32,6 +33,7 @@ const sessionOptions = {
 if (process.env.SERVER_ENV !== "development") {
   sessionOptions.proxy = true;
   sessionOptions.cookie = {
+    httpOnly: true,
     sameSite: "none",
     secure: true,
     domain: process.env.SERVER_URL,
