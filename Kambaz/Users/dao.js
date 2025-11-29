@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import model from "./model.js";
 export default function UsersDao() {
-  
   const createUser = (user) => {
     const newUser = { ...user, _id: uuidv4() };
     return model.create(newUser);
@@ -13,8 +12,10 @@ export default function UsersDao() {
   const findUserByUsername = (username) =>
     model.findOne({ username: username });
 
-  const findUserByCredentials = (username, password) =>
-    model.findOne({ username, password });
+ const findUserByCredentials = async (username, password) => {
+  return await model.findOne({ username, password });
+};
+
 
   const updateUser = (userId, user) =>
     model.updateOne({ _id: userId }, { $set: user });
