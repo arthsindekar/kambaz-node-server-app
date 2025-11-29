@@ -16,16 +16,17 @@ import ModulesRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import mongoose from "mongoose";
 
-const CONNECTION_STRING =  process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
+const CONNECTION_STRING =
+  process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz";
 mongoose.connect(CONNECTION_STRING);
+console.log("DB connection string" + CONNECTION_STRING);
 const app = express();
 app.use(
   cors({
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     origin: process.env.CLIENT_URL || "http://localhost:3000",
-
   })
 );
 const sessionOptions = {
@@ -47,7 +48,7 @@ app.use(express.json());
 UserRoutes(app, db);
 CourseRoutes(app, db);
 ModulesRoutes(app, db);
-EnrollmentsRoutes(app,db);
+EnrollmentsRoutes(app, db);
 AssignmentRoutes(app, db);
 Hello(app);
 
