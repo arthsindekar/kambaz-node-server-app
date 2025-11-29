@@ -2,7 +2,7 @@ import UsersDao from "./dao.js";
 export default function UserRoutes(app, db) {
 
   const dao = UsersDao(db);
-  
+
   const createUser = async (req, res) => {
     const user = await dao.createUser(req.body);
     res.json(user);
@@ -60,6 +60,7 @@ export default function UserRoutes(app, db) {
   const signin = async (req, res) => {
     const { username, password } = req.body;
     const currentUser = await dao.findUserByCredentials(username, password);
+    console.log(JSON.stringify(currentUser));
     if (currentUser) {
       req.session["currentUser"] = currentUser;
       res.json(currentUser);
