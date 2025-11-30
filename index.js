@@ -44,11 +44,11 @@ if (process.env.SERVER_ENV !== "development") {
 }
 app.use(session(sessionOptions));
 app.use(express.json());
-UserRoutes(app, db);
-CourseRoutes(app, db);
-ModulesRoutes(app, db);
-EnrollmentsRoutes(app, db);
-AssignmentRoutes(app, db);
+UserRoutes(app);
+CourseRoutes(app);
+ModulesRoutes(app);
+EnrollmentsRoutes(app);
+AssignmentRoutes(app);
 Hello(app);
 
 Lab5(app);
