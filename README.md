@@ -117,22 +117,6 @@ kambaz-node-server-app/
 
 ---
 
-## 🧪 Logging & Debugging
-
-* Custom middleware logs:
-
-  ```
-  METHOD /route STATUS_CODE
-  ```
-* Helpful during Render deployments and debugging request flows
-* Error handling centralized
-
----
-
-
-Render production environment must define the same variables.
-
----
 
 ## 🏃 Running Locally
 
@@ -151,11 +135,6 @@ Make sure MongoDB is accessible.
 
 ---
 
-## 🚢 Deployment
-
-* Deployed on **Render**
-* CI/CD via GitHub → Render auto-deploy
-* Supports cross-domain cookies for Vercel frontend
 
 ---
 
@@ -180,8 +159,8 @@ Make sure MongoDB is accessible.
 
 ## 📌 Status
 
-Actively developed and used in coursework at **Northeastern University (Khoury College of Computer Sciences)**.
-
+## Finished Product! 
+* Deployed on vercel and can be used in coursework at any university.
 ---
 
 ## 👨‍💻 Author
