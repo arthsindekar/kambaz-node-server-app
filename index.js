@@ -13,6 +13,11 @@ import CourseRoutes from "./Kambaz/Courses/routes.js";
 import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
 import ModulesRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
+import PazzaFolderRoutes from "./Pazza/Folders/routes.js";
+import PazzaPostRoutes from './Pazza/Posts/routes.js';
+import PazzaFollowupRoutes from './Pazza/Followup/routes.js';
+import PazzaAnswerRoutes from './Pazza/Answers/routes.js';
+import PazzaReplyRoutes from './Pazza/Replies/routes.js';
 import mongoose from "mongoose";
 
 const CONNECTION_STRING =
@@ -55,4 +60,10 @@ PathParameters(app);
 QueryParameters(app);
 WorkingWithObjects(app);
 WorkingWithArrays(app);
+
+PazzaFolderRoutes(app)
+PazzaAnswerRoutes(app)
+PazzaReplyRoutes(app)
+PazzaFollowupRoutes(app)
+PazzaPostRoutes(app)
 app.listen(process.env.PORT || 4000);
