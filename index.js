@@ -6,7 +6,6 @@ import QueryParameters from "./Lab5/QueryParameters.js";
 import WorkingWithObjects from "./Lab5/WorkingWithObjects.js";
 import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import cors from "cors";
-import db from "./Kambaz/Database/index.js";
 import UserRoutes from "./Kambaz/Users/routes.js";
 import "dotenv/config";
 import session from "express-session";
