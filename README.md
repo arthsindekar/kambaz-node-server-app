@@ -41,30 +41,18 @@ kambaz-node-server-app/
 ├── package.json
 │
 ├── Account/                 # Authentication & users
-│   ├── routes.js
-│   ├── dao.js
-│   └── schema.js
 │
 ├── Courses/                 # Courses & enrollments
-│   ├── routes.js
-│   ├── dao.js
-│   └── schema.js
 │
 ├── Modules/                 # Course modules
 ├── Assignments/             # Assignments CRUD
 │
 ├── Pazza/                   # Discussion system
 │   ├── Posts/
-│   │   ├── routes.js
-│   │   ├── dao.js
-│   │   └── schema.js
 │   ├── Followups/
 │   ├── Replies/
 │   └── Folders/
 │
-├── middleware/              # Custom middleware
-│
-└── utils/                   # Helpers & constants
 ```
 
 ---
