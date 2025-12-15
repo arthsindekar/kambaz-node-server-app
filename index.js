@@ -6,7 +6,6 @@ import QueryParameters from "./Lab5/QueryParameters.js";
 import WorkingWithObjects from "./Lab5/WorkingWithObjects.js";
 import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import cors from "cors";
-import db from "./Kambaz/Database/index.js";
 import UserRoutes from "./Kambaz/Users/routes.js";
 import "dotenv/config";
 import session from "express-session";
@@ -14,15 +13,18 @@ import CourseRoutes from "./Kambaz/Courses/routes.js";
 import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
 import ModulesRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
+import mongoose from "mongoose";
 
+const CONNECTION_STRING =
+  process.env.DATABASE_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz";
+mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(
   cors({
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     origin: process.env.CLIENT_URL || "http://localhost:3000",
-
   })
 );
 const sessionOptions = {
@@ -41,11 +43,11 @@ if (process.env.SERVER_ENV !== "development") {
 }
 app.use(session(sessionOptions));
 app.use(express.json());
-UserRoutes(app, db);
-CourseRoutes(app, db);
-ModulesRoutes(app, db);
-EnrollmentsRoutes(app,db);
-AssignmentRoutes(app, db);
+UserRoutes(app);
+CourseRoutes(app);
+ModulesRoutes(app);
+EnrollmentsRoutes(app);
+AssignmentRoutes(app);
 Hello(app);
 
 Lab5(app);
